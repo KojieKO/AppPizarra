@@ -30,7 +30,7 @@ Estado inicial: 24/09/2026. Este documento organiza la hoja de ruta de `PLAN-1.0
 
 | Tarea | Versión al cierre | Resultado principal | Estado |
 | --- | --- | --- | --- |
-| 1. Portal y guía pública | `1.1.01` | Web pública, ayuda, conexión y privacidad; descarga clara. | Pendiente; repositorio y descarga ya preparados. |
+| 1. Portal y guía pública | `1.1.01` | Web pública, ayuda, conexión y privacidad; descarga clara. | Completada el 24/09/2026; véase [informe 1.1.01](1.1.01-estado.md). |
 | 2. Autenticación común y seguridad local | `1.1.02` | Navegador, retorno local, estados y almacenamiento protegido reutilizables. | Pendiente; hay flujos parciales por proveedor. |
 | 3. OneDrive multiinstituto | `1.1.03` | Cuenta Microsoft propia, carpetas y subida que conserva originales. | Pendiente; hay cliente y subida sin validar. |
 | 4. Google Drive externo | `1.1.04` | Cuenta Google propia sin JSON, carpetas y subida que conserva originales. | Pendiente; hay cliente y subida sin validar. |
