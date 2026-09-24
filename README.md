@@ -2,11 +2,11 @@
 
 Aplicación portable para Windows que organiza archivos de pizarra **PDF y WBH**, convierte WBH a PDF y permite consultar los documentos junto al horario de clases.
 
-**Versión actual: 1.0.03.** Implementada en C# con .NET 10, Avalonia y SukiUI. El nombre del ejecutable se conserva como `PizarrasPro.exe`. Esta entrega corresponde al proyecto C# actual; las antiguas versiones Python son históricos locales.
+**Versión actual: 1.1.01.** Implementada en C# con .NET 10, Avalonia y SukiUI. El nombre del ejecutable se conserva como `PizarrasPro.exe`. Esta entrega añade el [portal público](https://kojieko.github.io/AppPizarra/) y su guía; las antiguas versiones Python son históricos locales.
 
 ## Descarga y puesta en marcha
 
-Descarga el ZIP portable desde [las publicaciones de GitHub](https://github.com/KojieKO/AppPizarra/releases). El código se encuentra en este repositorio y también se distribuye como ZIP de fuentes.
+**[Descarga el ZIP portable 1.1.01 para Windows x64](https://github.com/KojieKO/AppPizarra/releases/download/v1.1.01/PizarrasPro-1.1.01-portable-win-x64.zip)**. El mismo archivo se ofrece en la raíz del repositorio. Comprueba su SHA-256 en [`SHA256SUMS.txt`](SHA256SUMS.txt). Consulta también [las publicaciones de GitHub](https://github.com/KojieKO/AppPizarra/releases).
 
 1. Extrae **todo** el ZIP en una carpeta del equipo o de una memoria USB con permiso de escritura.
 2. Abre `PizarrasPro.exe`. No requiere instalar Python, .NET ni un lector PDF adicional.
@@ -58,7 +58,7 @@ Para actualizar, cierra la aplicación, extrae la nueva versión en otra carpeta
 
 ## OneDrive y Google Drive: integración pendiente de validación real
 
-Hay código de conexión OAuth, selección de carpeta remota y subida. **Esta versión no ha sido validada de extremo a extremo con cuentas reales** y no se presenta como una función certificada. La evolución de los servicios conectados permanece en la [hoja de ruta](https://github.com/KojieKO/AppPizarra/blob/main/docs/PLAN-1.0.03-1.1.00.md).
+Hay código de conexión OAuth, selección de carpeta remota y subida. **Esta versión no ha sido validada de extremo a extremo con cuentas reales** y no se presenta como una función certificada. Consulta el [estado de conexión](https://kojieko.github.io/AppPizarra/conexion.html), la [ayuda](https://kojieko.github.io/AppPizarra/ayuda.html), la [privacidad](https://kojieko.github.io/AppPizarra/privacidad.html) y el [plan de minitareas 1.1](docs/PLAN-1.1-MINITAREAS.md).
 
 El diálogo actual solicita un identificador de aplicación pública de Microsoft Entra con redirección `http://localhost` y permiso `Files.ReadWrite`, o un JSON OAuth de Google de tipo Escritorio con Drive API habilitada. Google solicita el alcance de Drive completo. El inicio de sesión se realiza en el navegador; las sesiones y tokens de la aplicación se mantienen en memoria. El identificador de Microsoft se guarda en preferencias; el JSON de Google se carga en memoria.
 
@@ -84,7 +84,7 @@ Para crear una distribución nueva, ejecuta en PowerShell:
 ./scripts/publish-portable.ps1 -Output artifacts/nueva-entrega
 ```
 
-El script lee la versión del proyecto, utiliza el SDK local `.tools/dotnet` si existe o `dotnet` del sistema, restaura con bloqueo de dependencias y publica un ejecutable autónomo `win-x64`. Incluye documentación y licencias, crea el ZIP y muestra su SHA-256. Rechaza destinos existentes y rutas exteriores al proyecto.
+El script lee la versión del proyecto, utiliza el SDK local `.tools/dotnet` si existe o `dotnet` del sistema, restaura con bloqueo de dependencias y publica un ejecutable autónomo `win-x64`. Desactiva la consulta de auditoría durante el empaquetado para poder trabajar con el caché local sin red. Incluye documentación y licencias, crea el ZIP y muestra su SHA-256. Rechaza destinos existentes y rutas exteriores al proyecto.
 
 ## Pruebas y alcance de la revisión
 
@@ -110,6 +110,7 @@ tests/PizarrasPro.Tests/     Comprobaciones funcionales con documentos sintétic
 tests/PizarrasPro.ThemeSmoke/Comprobaciones de interfaz Avalonia
 scripts/                    Publicación del portable
 docs/                       Planes, estados y licencias de terceros
+site/                       Portal estático para GitHub Pages
 artifacts/                  Salidas locales de compilación y pruebas (excluidas de Git)
 ```
 

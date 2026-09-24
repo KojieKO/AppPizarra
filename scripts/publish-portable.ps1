@@ -17,7 +17,7 @@ $out = [IO.Path]::GetFullPath((Join-Path $root $Output))
 if (-not $out.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw 'Output must be inside the project directory.' }
 if (Test-Path $out) { throw 'Output already exists. Choose a new directory; existing portable settings will not be deleted.' }
 if (Test-Path "$out.zip") { throw 'ZIP already exists. Choose a new output name.' }
-& $dotnet restore $project -r win-x64 --locked-mode -p:UsedAvaloniaProducts=
+& $dotnet restore $project -r win-x64 --locked-mode -p:UsedAvaloniaProducts= -p:NuGetAudit=false
 if ($LASTEXITCODE -ne 0) { throw "restore failed ($LASTEXITCODE)" }
 & $dotnet publish $project -c $Configuration -r win-x64 --self-contained true --no-restore -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:UsedAvaloniaProducts= -o $out
 if ($LASTEXITCODE -ne 0) { throw "publish failed ($LASTEXITCODE)" }

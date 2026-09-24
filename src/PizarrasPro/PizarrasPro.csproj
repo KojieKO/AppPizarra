@@ -5,7 +5,7 @@
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.0.03</Version>
+    <Version>1.1.01</Version>
     <Product>Pizarra Pro</Product>
     <Title>Pizarra Pro</Title>
     <InformationalVersion>$(Version)</InformationalVersion>
