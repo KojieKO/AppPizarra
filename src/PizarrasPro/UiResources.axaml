@@ -1,0 +1,57 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- Semantic resources for the next phases; colors follow SukiUI dynamically. -->
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <!-- Opaque dark surfaces keep text readable, including software rendering. -->
+        <ResourceDictionary x:Key="Dark">
+          <Color x:Key="SukiGlassCardBackground">#333333</Color>
+          <Color x:Key="ControlSukiGlassCardBackground">#333333</Color>
+          <Color x:Key="SukiText">#EDEDED</Color>
+          <Color x:Key="SukiLowText">#D1D1D1</Color>
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    <SolidColorBrush x:Key="PizarrasSurfaceBrush" Color="{DynamicResource SukiCardBackground}" />
+    <SolidColorBrush x:Key="PizarrasWorkspaceBrush" Color="{DynamicResource SukiStrongBackground}" />
+    <SolidColorBrush x:Key="PizarrasTextBrush" Color="{DynamicResource SukiText}" />
+    <SolidColorBrush x:Key="PizarrasSecondaryTextBrush" Color="{DynamicResource SukiLowText}" />
+    <SolidColorBrush x:Key="PizarrasBorderBrush" Color="{DynamicResource SukiControlBorderBrush}" />
+    <SolidColorBrush x:Key="PizarrasAccentBrush" Color="{DynamicResource SukiPrimaryColor}" />
+    <SolidColorBrush x:Key="PizarrasDangerBrush" Color="{DynamicResource SukiDangerColor}" />
+    <Thickness x:Key="PizarrasPagePadding">24</Thickness>
+    <Thickness x:Key="PizarrasButtonPadding">12,8</Thickness>
+    <CornerRadius x:Key="PizarrasCornerRadius">6</CornerRadius>
+    </ResourceDictionary>
+  </Styles.Resources>
+  <Style Selector=":is(Window)">
+    <Setter Property="FontFamily" Value="Segoe UI" />
+  </Style>
+  <Style Selector="DataGrid.documents DataGridColumnHeader">
+    <Setter Property="Padding" Value="8,5" />
+    <Setter Property="FontSize" Value="11" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="DataGrid.documents DataGridCell">
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="DataGrid.documents DataGridRow">
+    <Setter Property="ToolTip.Tip" Value="{Binding FullPath}" />
+  </Style>
+  <Style Selector="DataGrid.documents DataGridColumnHeader /template/ Path#SortIcon">
+    <Setter Property="Width" Value="8" />
+    <Setter Property="Margin" Value="2,0" />
+  </Style>
+  <Style Selector="DataGrid.documents:focus-within DataGridRow:selected /template/ Border#BackgroundRectangle">
+    <Setter Property="BorderBrush" Value="{DynamicResource PizarrasAccentBrush}" />
+    <Setter Property="BorderThickness" Value="2,0,0,1" />
+  </Style>
+  <Style Selector="DataGrid.documents:focus-within">
+    <Setter Property="BorderBrush" Value="{DynamicResource PizarrasAccentBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+  </Style>
+  <Style Selector="ContextMenu.documentMenu MenuItem">
+    <Setter Property="Padding" Value="10,5" />
+    <Setter Property="FontSize" Value="13" />
+  </Style>
+</Styles>
